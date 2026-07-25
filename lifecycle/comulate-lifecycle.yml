@@ -1,0 +1,22 @@
+generated: '2026-07-18'
+method: searched
+source: https://trust.comulate.com
+status_page: https://trust.comulate.com
+status_page_notes: >-
+  Public uptime/status page monitoring app.comulate.com and its API. Reported
+  100% operational status across the April-July 2026 window at time of capture.
+sla:
+  url: null
+  uptime_target: null
+versioning:
+  scheme: null
+  current: null
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: null
+deprecated_operations: []
+notes: >-
+  Comulate publishes no public developer/API surface, versioning policy, or
+  deprecation policy as of capture; only a public status page was found. Fields
+  left null are absent, not fabricated.

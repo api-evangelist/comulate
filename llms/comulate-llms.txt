@@ -1,0 +1,22 @@
+# Comulate
+
+> Comulate is an accounting automation and revenue intelligence platform for large insurance brokers. It captures carrier statement data across formats, reconciles direct-bill and payables transactions to policies, and surfaces commission forecasting and variance tracking. No public developer API or documentation is published as of 2026-07-18; the platform is delivered as a hosted application at app.comulate.com with native connectors to broker systems.
+
+## Products
+- [Direct Bill Automation](https://comulate.com): capture carrier statement data (spreadsheets, PDFs, email) and auto-reconcile transactions to policies
+- [Carrier Payables Automation](https://comulate.com): streamline payables, flag discrepancies, manage disbursement timing
+- [Revenue Intelligence](https://comulate.com): commission forecasting, variance tracking, missing-commission detection
+
+## Company
+- [Website](https://comulate.com)
+- [Application login](https://app.comulate.com)
+- [Integrations](https://comulate.com/integrations): native connectors for Epic, BenefitPoint, AMS360, Dynamics, Salesforce
+- [Customers](https://comulate.com/customers)
+- [About](https://comulate.com/about)
+- [Careers](https://comulate.com/careers)
+
+## Security & Trust
+- [Security](https://comulate.com/security): SOC 2 Type II and SOC 1 Type II; security contact security@comulate.com
+- [Status page](https://trust.comulate.com): uptime for app.comulate.com and its API
+- [Privacy policy](https://comulate.com/privacy-policy)
+- [Terms of use](https://comulate.com/terms-of-use)

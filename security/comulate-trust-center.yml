@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://comulate.com/security
+url: https://comulate.com/security
+certifications:
+- SOC 2 Type II
+- SOC 1 Type II
+status_page: https://trust.comulate.com
+evidence:
+- source: https://comulate.com/security
+  keywords:
+  - soc 2 type ii
+  - soc 1 type ii
+  - security@comulate.com

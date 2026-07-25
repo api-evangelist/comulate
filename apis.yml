@@ -1,7 +1,29 @@
 aid: comulate
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/comulate.png
 name: Comulate
-description: Comulate is a company surfaced as a portfolio company of bond-capital and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Comulate is an accounting automation and revenue intelligence platform built
+  for large insurance brokers. It captures carrier statement data across
+  spreadsheets, PDFs, and email, then automatically reconciles direct-bill and
+  carrier-payables transactions against policies to eliminate manual back-office
+  accounting work. Its Revenue Intelligence layer adds commission forecasting,
+  variance tracking, and missing-commission detection. Comulate is delivered as
+  a hosted application at app.comulate.com with native connectors to broker
+  management systems including Epic, BenefitPoint, AMS360, Microsoft Dynamics,
+  and Salesforce. The company was surfaced as a Bond Capital portfolio company
+  and enriched in the API Evangelist network; it publishes no public developer
+  API or documentation as of this profile.
 url: https://raw.githubusercontent.com/api-evangelist/comulate/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +33,17 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Insurance
+- InsurTech
+- Accounting
+- Reconciliation
+- Automation
+- Revenue Intelligence
+- Fintech
+- Insurance Brokers
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +53,34 @@ maintainers:
 common:
 - type: Website
   url: https://comulate.com
+- type: Login
+  url: https://app.comulate.com
+- type: PrivacyPolicy
+  url: https://comulate.com/privacy-policy
+- type: TermsOfService
+  url: https://comulate.com/terms-of-use
+- type: Support
+  url: mailto:support@comulate.com
+- type: StatusPage
+  url: https://trust.comulate.com
+- type: Compliance
+  url: https://comulate.com/security
+- type: Security
+  url: https://comulate.com/security
+- type: DomainSecurity
+  url: security/comulate-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/comulate-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/comulate-trust-center.yml
+- type: Conformance
+  url: conformance/comulate-conformance.yml
+- type: Lifecycle
+  url: lifecycle/comulate-lifecycle.yml
+- type: LLMsTxt
+  url: llms/comulate-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
