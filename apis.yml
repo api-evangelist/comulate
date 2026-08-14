@@ -33,7 +33,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-14'
 tags:
 - Company
 - Insurance
@@ -79,8 +79,33 @@ common:
   url: lifecycle/comulate-lifecycle.yml
 - type: LLMsTxt
   url: llms/comulate-llms.txt
+- type: Plans
+  url: plans/comulate-plans-pricing.yml
+- type: Packages
+  url: packages/comulate-packages.yml
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-14'
+  status: minimal
+  artifacts_added: 4
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Contract discovery re-run against every host. Found api.comulate.com is a live
+    first-party API host that returns HTTP 401 on every path; no public spec, portal,
+    SDK, MCP server, agent card or well-known document exists.
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    api.comulate.com is a live first-party Comulate API host whose root health check
+    returns 200 but which answers HTTP 401 "Unauthorized" on every other path including
+    /openapi.json, and Comulate publishes no developer portal at all
+    (comulate.com/developers returns 404 and docs.comulate.com does not resolve), so the
+    contract is reachable only by contracted broker customers.
+  evidence:
+  - url: https://api.comulate.com/
+    status: 200
+  - url: https://api.comulate.com/openapi.json
+    status: 401
+  - url: https://www.comulate.com/developers
+    status: 404
+  checked: '2026-08-14'
