@@ -1,10 +1,12 @@
-generated: '2026-07-18'
+generated: '2026-08-14'
 method: searched
 source: https://trust.comulate.com
 status_page: https://trust.comulate.com
+status_page_provider: Better Stack
 status_page_notes: >-
-  Public uptime/status page monitoring app.comulate.com and its API. Reported
-  100% operational status across the April-July 2026 window at time of capture.
+  Public uptime/status page titled "Comulate status", monitoring app.comulate.com and its
+  API. Re-verified live at HTTP 200 on 2026-08-14. Carries an RSS feed for incident
+  history.
 sla:
   url: null
   uptime_target: null
@@ -15,8 +17,30 @@ versioning:
 deprecation:
   policy_url: null
   sunset_header: null
+changelog:
+  url: null
 deprecated_operations: []
+api_host_observed: https://api.comulate.com
+api_host_notes: >-
+  api.comulate.com is a live, first-party Comulate API host (DNS CNAME to
+  ecs-public-prod-680052463.us-west-2.elb.amazonaws.com). Its root returns HTTP 200 with
+  the body "200 OK" — a health check — and EVERY other path returns HTTP 401
+  "Unauthorized", including /openapi.json, /swagger.json, /api-docs, /graphql and every
+  /.well-known/* path. No version prefix is publicly discoverable and no version, sunset
+  or deprecation header is emitted on any anonymous response, so the API's lifecycle
+  posture cannot be read from outside. Recorded as observed, not inferred.
 notes: >-
-  Comulate publishes no public developer/API surface, versioning policy, or
-  deprecation policy as of capture; only a public status page was found. Fields
-  left null are absent, not fabricated.
+  Comulate publishes no public developer surface, versioning policy, deprecation policy,
+  SLA or changelog. Only a public status page was found. Fields left null are absent, not
+  fabricated. Because there is no deprecation policy and no Sunset/Deprecation header
+  support to verify, no `Deprecation` pointer is emitted in apis.yml.
+evidence:
+- url: https://trust.comulate.com
+  status: 200
+- url: https://www.comulate.com/changelog
+  status: 404
+- url: https://api.comulate.com/
+  status: 200
+  finding: 'body "200 OK", no version or deprecation headers'
+- url: https://api.comulate.com/openapi.json
+  status: 401

@@ -1,0 +1,27 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.comulate.com/sitemap.xml
+limit_count: 0
+rate_limits: []
+headers: []
+exhaustion_status: null
+docs: null
+note: >-
+  No rate limits are documented anywhere on Comulate's public surface, because Comulate
+  publishes no developer documentation at all. There is no developer portal, API
+  reference, or docs host (developer.comulate.com and docs.comulate.com do not resolve;
+  comulate.com/docs, /developers and /api all return 404). The production API host
+  api.comulate.com is live but returns HTTP 401 on every path, so no rate-limit response
+  headers could be observed on an unauthenticated request either. limit_count is an
+  honest zero — checked and absent, not unchecked.
+evidence:
+- url: https://www.comulate.com/docs
+  status: 404
+- url: https://www.comulate.com/developers
+  status: 404
+- url: https://docs.comulate.com/
+  status: 0
+  finding: DNS does not resolve
+- url: https://api.comulate.com/openapi.json
+  status: 401
+  finding: no RateLimit-* or X-RateLimit-* headers present on the 401 response

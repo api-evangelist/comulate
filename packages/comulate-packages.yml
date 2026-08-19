@@ -1,0 +1,28 @@
+generated: '2026-08-14'
+method: searched
+source: registry searches across npm, PyPI, RubyGems and GitHub
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  Comulate publishes no client libraries or SDKs in any public package registry, and has
+  no public GitHub organization. Searched npm (registry.npmjs.org search for "comulate":
+  0 objects), PyPI (pypi.org/pypi/comulate/json: "Not Found"), RubyGems
+  (rubygems.org/api/v1/gems/comulate.json: "This rubygem could not be found") and GitHub
+  code search (4 repositories match the string "comulate", none owned by the company —
+  all are unrelated third-party repos). This is consistent with the rest of the profile:
+  Comulate ships a hosted application with vendor-built AMS/CRM connectors, not a
+  developer-facing API with client libraries. package_count is an honest zero.
+evidence:
+- url: https://registry.npmjs.org/-/v1/search?text=comulate
+  status: 200
+  finding: '{"objects":[],"total":0}'
+- url: https://pypi.org/pypi/comulate/json
+  status: 404
+  finding: '{"message": "Not Found"}'
+- url: https://rubygems.org/api/v1/gems/comulate.json
+  status: 404
+  finding: This rubygem could not be found
+- url: https://api.github.com/search/repositories?q=comulate
+  status: 200
+  finding: 4 unrelated third-party repositories; no api-evangelist-verifiable Comulate org

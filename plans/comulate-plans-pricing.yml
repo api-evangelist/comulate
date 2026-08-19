@@ -1,0 +1,24 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.comulate.com/sitemap.xml
+plan_count: 0
+plans: []
+pricing_url: null
+pricing_model: contact-sales
+currency: null
+note: >-
+  Comulate publishes NO pricing page and NO plan tiers. https://www.comulate.com/pricing
+  returns HTTP 404, and the published sitemap (22 URLs) contains no pricing, plans, or
+  packaging page of any kind. The only commercial entry point on the site is the
+  "contact us" form at https://www.comulate.com/contact-us. This is an enterprise
+  contact-sales motion aimed at large insurance brokers, not a self-serve product with
+  published tiers — plan_count is an honest zero, not an unchecked field.
+evidence:
+- url: https://www.comulate.com/pricing
+  status: 404
+- url: https://www.comulate.com/sitemap.xml
+  status: 200
+  finding: no pricing or plans URL present among the 22 listed pages
+- url: https://www.comulate.com/contact-us
+  status: 200
+  finding: contact-sales form is the only commercial entry point

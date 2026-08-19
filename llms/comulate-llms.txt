@@ -1,22 +1,36 @@
 # Comulate
 
-> Comulate is an accounting automation and revenue intelligence platform for large insurance brokers. It captures carrier statement data across formats, reconciles direct-bill and payables transactions to policies, and surfaces commission forecasting and variance tracking. No public developer API or documentation is published as of 2026-07-18; the platform is delivered as a hosted application at app.comulate.com with native connectors to broker systems.
+> Comulate is an accounting automation and revenue intelligence platform for large insurance brokers. It captures carrier statement data across spreadsheets, PDFs, and email, reconciles direct-bill and carrier-payables transactions against policies, and surfaces commission forecasting, variance tracking, and missing-commission detection. It is delivered as a hosted application at app.comulate.com with native read/write connectors to broker management systems. No public developer API, developer portal, API reference, or machine-readable specification is published as of 2026-08-14; the production API host api.comulate.com is live but returns HTTP 401 on every path.
 
 ## Products
-- [Direct Bill Automation](https://comulate.com): capture carrier statement data (spreadsheets, PDFs, email) and auto-reconcile transactions to policies
-- [Carrier Payables Automation](https://comulate.com): streamline payables, flag discrepancies, manage disbursement timing
-- [Revenue Intelligence](https://comulate.com): commission forecasting, variance tracking, missing-commission detection
+- [Direct Bill Automation](https://www.comulate.com/direct-bill-automation): capture carrier statement data (spreadsheets, PDFs, email) and auto-reconcile transactions to policies
+- [Carrier Payables Automation](https://www.comulate.com): streamline payables, flag discrepancies, manage disbursement timing
+- [Revenue Intelligence](https://www.comulate.com): commission forecasting, variance tracking, missing-commission detection
+- [Balance](https://www.comulate.com/balance): broker accounting balance surface
+
+## Integrations
+- [Integrations](https://www.comulate.com/integrations): native read/write connectors for Applied Epic, BenefitPoint, AMS360, Microsoft Dynamics, and Salesforce. Comulate reads and writes to the broker's AMS and ERP, which remain the source of truth for policy and accounting data. These are vendor-built connectors, not a published integration API.
+
+## Developer surface
+- No developer portal. comulate.com/developers, /docs and /api all return HTTP 404; developer.comulate.com and docs.comulate.com do not resolve in DNS.
+- No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, or Postman collection is published at any Comulate host.
+- No client libraries or SDKs exist in npm, PyPI or RubyGems, and there is no public GitHub organization.
+- No MCP server, A2A agent card, or /.well-known/ discovery document is served on any host.
+- https://api.comulate.com is a live first-party API host. Its root returns HTTP 200 with the body "200 OK" (a health check); every other path, including /openapi.json and all /.well-known/* paths, returns HTTP 401 "Unauthorized". The API exists and is customer-gated; its contract is not published.
 
 ## Company
-- [Website](https://comulate.com)
+- [Website](https://www.comulate.com)
 - [Application login](https://app.comulate.com)
-- [Integrations](https://comulate.com/integrations): native connectors for Epic, BenefitPoint, AMS360, Dynamics, Salesforce
-- [Customers](https://comulate.com/customers)
-- [About](https://comulate.com/about)
-- [Careers](https://comulate.com/careers)
+- [Customers](https://www.comulate.com/customers)
+- [About](https://www.comulate.com/about)
+- [Careers](https://www.comulate.com/careers)
+- [Contact](https://www.comulate.com/contact-us)
 
-## Security & Trust
-- [Security](https://comulate.com/security): SOC 2 Type II and SOC 1 Type II; security contact security@comulate.com
-- [Status page](https://trust.comulate.com): uptime for app.comulate.com and its API
-- [Privacy policy](https://comulate.com/privacy-policy)
-- [Terms of use](https://comulate.com/terms-of-use)
+## Security and trust
+- [Security](https://www.comulate.com/security): SOC 2 Type II and SOC 1 Type II; annual independent third-party penetration testing; databases encrypted at rest; TLS/SSL in transit; security contact security@comulate.com
+- [Status page](https://trust.comulate.com): Better Stack uptime page for app.comulate.com and its API
+- [Privacy policy](https://www.comulate.com/privacy-policy)
+- [Terms of use](https://www.comulate.com/terms-of-use)
+
+## Litigation
+- [Applied Systems antitrust lawsuit](https://www.comulate.com/applied-systems-antitrust-lawsuit): Comulate has filed a federal antitrust suit against Applied Systems alleging conspiracy to monopolize; the company publishes a running series of case updates under /applied-vs-comulate/. Relevant to any integration question about Applied Epic connectivity.

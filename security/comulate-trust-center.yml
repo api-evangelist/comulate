@@ -1,4 +1,4 @@
-generated: '2026-07-18'
+generated: '2026-08-14'
 method: searched
 probe: true
 source: https://comulate.com/security
@@ -7,9 +7,34 @@ certifications:
 - SOC 2 Type II
 - SOC 1 Type II
 status_page: https://trust.comulate.com
+security_contact: security@comulate.com
+controls:
+  encryption_at_rest: true
+  encryption_in_transit: true
+  penetration_testing: annual-third-party
+subprocessors_published: false
+note: >-
+  Comulate's security page displays SOC 1 Type II and SOC 2 Type II badges and states
+  "Our Information Security Program follows the criteria set forth by the SOC 2
+  Framework." It further states "We perform an independent third-party penetration at
+  least annually to ensure that the security posture of our services is uncompromised",
+  "All databases are encrypted at rest" and "Our applications encrypt in transit with
+  TLS/SSL only". No ISO 27001, HIPAA, PCI DSS, FedRAMP, GDPR or CCPA certification is
+  claimed, and no subprocessor list is published. The footer "Trust" link points at
+  https://trust.comulate.com, which is a Better Stack uptime STATUS page titled "Comulate
+  status" — not a certification-artifact trust portal; it is recorded as the status page
+  rather than as a second trust center.
 evidence:
 - source: https://comulate.com/security
+  status: 200
   keywords:
   - soc 2 type ii
   - soc 1 type ii
+  - penetration
+  - encrypted at rest
   - security@comulate.com
+- source: https://trust.comulate.com
+  status: 200
+  keywords:
+  - comulate status
+  - better stack

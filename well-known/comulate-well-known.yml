@@ -1,0 +1,96 @@
+generated: '2026-08-14'
+method: probed
+source: live HTTPS probes of every Comulate host discovered in apis.yml + DNS
+note: >-
+  RECORDED ABSENCE, NOT A PRESENCE. Every /.well-known/ path was probed on all four
+  Comulate hosts and none returned a document. No WellKnown or SecurityTxt pointer is
+  emitted in apis.yml, because Comulate does not serve this surface. The marketing host
+  (comulate.com) answers 404 with an HTML page; the application SPA (app.comulate.com)
+  answers 404 with a 14KB HTML shell for every path; the API host (api.comulate.com)
+  answers 401 Unauthorized for every path including /.well-known/*, so its well-known
+  surface is auth-gated rather than absent.
+hosts:
+- host: https://comulate.com
+  role: marketing website
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://app.comulate.com
+  role: hosted application (SPA)
+  note: >-
+    Returns HTTP 404 with a 14,426-byte HTML application shell for every path probed.
+    Not a document under any path.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.comulate.com
+  role: production API host (auth-gated)
+  note: >-
+    Live first-party API host — DNS resolves to ecs-public-prod-680052463.us-west-2.elb.amazonaws.com
+    and responses carry helmet-style security headers. The bare root returns 200 with the
+    six-byte body "200 OK" (a health check). EVERY other path, including all /.well-known/*
+    probes, returns HTTP 401 with the body "Unauthorized". This is a gate, not an absence.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+- host: https://trust.comulate.com
+  role: status page (Better Stack hosted)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+summary:
+  hosts_probed: 4
+  paths_probed: 31
+  documents_found: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false

@@ -1,17 +1,63 @@
-generated: '2026-07-18'
+generated: '2026-08-14'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of every Comulate host discovered in apis.yml + DNS
 hosts:
 - host: comulate.com
+  role: marketing website
   https: true
   tls_version: TLSv1.3
   cert_expires: Oct 14 17:36:58 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+  hsts_preload: false
+- host: app.comulate.com
+  role: hosted application
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb 26 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_preload: true
+- host: api.comulate.com
+  role: production API host (auth-gated)
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb 26 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 15552000
+  hsts_include_subdomains: true
+  hsts_preload: false
+  note: >-
+    Returns 401 on every path except the root health check. Response carries a full
+    helmet-style header set — CSP default-src 'self', COEP require-corp, COOP
+    same-origin, CORP same-origin, X-Frame-Options DENY, X-Content-Type-Options nosniff,
+    Referrer-Policy no-referrer, X-Permitted-Cross-Domain-Policies none.
+- host: trust.comulate.com
+  role: status page (Better Stack hosted)
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 11 17:14:46 2026 GMT
+  hsts: true
+  hsts_max_age: 63113904
+  hsts_include_subdomains: true
+  hsts_preload: true
 domains:
 - domain: comulate.com
   dnssec: false
   caa: []
   spf: true
+  spf_policy: '-all'
+  spf_record: v=spf1 include:dc-aa8e722993._spfm.comulate.com -all
   dmarc: true
   dmarc_policy: quarantine
+  dmarc_subdomain_policy: none
+  dmarc_pct: 90
+  dmarc_rua: true
+findings:
+- HSTS is enabled on all four hosts; app and trust are preload-eligible, comulate.com and
+  api.comulate.com are not.
+- No CAA records are published, so any CA may issue for comulate.com.
+- DNSSEC is not enabled (no DS record).
+- SPF is a hard fail (-all), which is the strong setting.
+- DMARC is p=quarantine at pct=90 with sp=none, so subdomains are unprotected and 10
+  percent of failing mail is unhandled — short of a full p=reject posture.
